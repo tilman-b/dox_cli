@@ -27,7 +27,9 @@ class DocumentExtractionClient:
     for more details
     """
 
-    def __init__(self, base_url: str, oauth_url: str, client_id: str, client_secret: str):
+    def __init__(
+        self, base_url: str, oauth_url: str, client_id: str, client_secret: str
+    ):
         """
         Create a new client to interact with the Document Extraction Service API
 
@@ -48,10 +50,12 @@ class DocumentExtractionClient:
         self.token = self._session.fetch_token(
             token_url=self._oauth_url,
             client_id=self._client_id,
-            client_secret=self._client_secret
+            client_secret=self._client_secret,
         )
 
-    def _call_api(self, url: str, method: Callable, validation_http_status: int, **kwargs) -> dict:
+    def _call_api(
+        self, url: str, method: Callable, validation_http_status: int, **kwargs
+    ) -> dict:
         if self._token is None:
             self._renew()
         try:
@@ -69,7 +73,9 @@ class DocumentExtractionClient:
     def _get(self, url: str, **kwargs) -> dict:
         return self._call_api(url, self._session.get, 200, **kwargs)
 
-    def upload_pdf(self, document_path: str, document_type: str, schema_id: str) -> dict:
+    def upload_pdf(
+        self, document_path: str, document_type: str, schema_id: str
+    ) -> dict:
         """
         Upload a pdf to the document extraction service in order to extract its data.
         If the client specified by client_id and client_name do not exist it will be created.
@@ -84,15 +90,19 @@ class DocumentExtractionClient:
 
         filename = Path(document_path).name
         return self._post(
-            create_url(self._base_url, "/document-information-extraction/v1/document/jobs"),
+            create_url(
+                self._base_url, "/document-information-extraction/v1/document/jobs"
+            ),
             files={"file": (filename, open(document_path, "rb"), "application/pdf")},
             data={
-                "options": json.dumps({
-                    "documentType": document_type,
-                    "clientId": "default",
-                    "schemaId": schema_id
-                })
-            }
+                "options": json.dumps(
+                    {
+                        "documentType": document_type,
+                        "clientId": "default",
+                        "schemaId": schema_id,
+                    }
+                )
+            },
         )
 
     def get_result(self, document_id: str) -> dict:
@@ -105,10 +115,14 @@ class DocumentExtractionClient:
         :raises ExtractionException in case the extraction process did not work
         """
         response = self._get(
-            create_url(self._base_url, f"/document-information-extraction/v1/document/jobs/{document_id}")
+            create_url(
+                self._base_url,
+                f"/document-information-extraction/v1/document/jobs/{document_id}",
+            )
         )
 
         if response["status"] == "FAILED":
-            raise ExtractionException(message="extraction failed", document_id=document_id)
+            raise ExtractionException(
+                message="extraction failed", document_id=document_id
+            )
         return response
-
