@@ -34,3 +34,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Test installation
+      run: |
+        pip install .
+        sap_dox --help
