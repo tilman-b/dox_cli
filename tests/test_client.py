@@ -30,7 +30,7 @@ class TestClient(unittest.TestCase):
         with patch.object(self.client, "_session") as mock:
             mock.post.return_value = self._create_response(201)
             # we want to check if the request was correct therefore we do not care about the return value
-            _ = self.client.upload_pdf(document_path="./data/test.pdf", document_type="invoice", schema_id="schema_1")
+            _ = self.client.upload_pdf(document_path="tests/data/test.pdf", document_type="invoice", schema_id="schema_1")
 
             called_url = mock.post.call_args.args
             payload = mock.post.call_args.kwargs
@@ -51,7 +51,7 @@ class TestClient(unittest.TestCase):
         with patch.object(self.client, "_session") as mock:
             mock.post.return_value = self._create_response(500)
 
-            self.assertRaises(HttpException, self.client.upload_pdf, document_path="./data/test.pdf", document_type="invoice", schema_id="schema_1")
+            self.assertRaises(HttpException, self.client.upload_pdf, document_path="tests/data/test.pdf", document_type="invoice", schema_id="schema_1")
 
     def test_get_result_failure(self):
         with patch.object(self.client, "_session") as mock:
