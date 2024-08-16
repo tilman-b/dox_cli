@@ -34,7 +34,6 @@ Use the following fields as options. See the section below for a more detailed d
 All options can be specified either as parameters when running the tool or as environment variables (in uppercase and prefixed with `DOX_`).
  - `--oauth_client_id|DOX_OAUTH_CLIENT_ID` 
 (Required) The id of the client used for authentication. 
-Note: this is not id of the client used for extraction.
  - `--oauth_client_secret|DOX_OAUTH_CLIENT_SECRET` 
 (Required) The secret for authentication.
  - `--oauth_url|DOX_OAUTH_URL` 

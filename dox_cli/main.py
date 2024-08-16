@@ -9,14 +9,14 @@ from dox_cli.helper import map_type_to_schema
 
 
 def _add_env_var_help(env_var: str) -> str:
-    return f"Can be omitted if {env_var} is set"
+    return f"Can be omitted if {env_var} is set."
 
 
 @click.command()
 @click.option(
     "--oauth_client_id",
     required=True,
-    help=f"""The id of the client used for authentication. Note: this is not id of the client used for extraction.
+    help=f"""The id of the client used for authentication.
  {_add_env_var_help('DOX_OAUTH_CLIENT_ID')}""",
 )
 @click.option(
@@ -50,7 +50,7 @@ def _add_env_var_help(env_var: str) -> str:
     "--keep_doc",
     is_flag=True,
     default=False,
-    help=f"keep the document in the SAP Document Information Extraction Service after finished. {_add_env_var_help('DOX_KEEP_DOC')}",
+    help=f"Keep the document in the SAP Document Information Extraction Service after finished. {_add_env_var_help('DOX_KEEP_DOC')}",
 )
 @click.option(
     "--max_wait",
