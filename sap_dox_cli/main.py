@@ -8,24 +8,25 @@ from sap_dox_cli.client import DocumentExtractionClient
 from sap_dox_cli.helper import map_type_to_schema
 
 
+def _add_env_var_help(env_var: str) -> str:
+    return f"Can be omitted if {env_var} is set"
+
+
 @click.command()
 @click.option(
     "--oauth_client_id",
     required=True,
-    help="The id of the client used for authentication. Note: this is not id of the client used for extraction.",
+    help=f"""The id of the client used for authentication. Note: this is not id of the client used for extraction.
+ {_add_env_var_help('DOX_OAUTH_CLIENT_ID')}""",
 )
 @click.option(
-    "--oauth_client_secret", required=True, help="The secret for authentication."
+    "--oauth_client_secret",
+    required=True,
+    help=f"The secret for authentication. {_add_env_var_help('DOX_OAUTH_CLIENT_SECRET')}",
 )
 @click.option("--oauth_url", required=True, help="URL to authenticate against")
 @click.option(
     "--base_url", required=True, help="Base URL of the document extraction service"
-)
-@click.option(
-    "--max_wait",
-    type=int,
-    default=15,
-    help="seconds to wait for the document extraction service",
 )
 @click.option(
     "--document_type",
@@ -36,6 +37,12 @@ from sap_dox_cli.helper import map_type_to_schema
     help="""Document type of the provided file. 
     Custom document types are not supported by now. 
     See also: https://help.sap.com/docs/document-information-extraction/document-information-extraction/supported-document-types-and-file-formats""",
+)
+@click.option(
+    "--max_wait",
+    type=int,
+    default=60,
+    help="Seconds to wait for the document extraction service.",
 )
 @click.argument("file", type=click.Path(exists=True))
 def run(
@@ -73,4 +80,4 @@ This does not mean there was an error. Please check later."""
 
 
 if __name__ == "__main__":
-    run(max_content_width=120, auto_envvar_prefix="SAP")
+    run(max_content_width=120, auto_envvar_prefix="DOX")
