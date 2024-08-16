@@ -40,4 +40,3 @@ def create_url(base_url: str, path: str):
     if not path.startswith("/"):
         path = f"/{path}"
     return f"{base_url}{path}"
-
