@@ -108,8 +108,8 @@ def run(
             sys.exit(0)
         time.sleep(1)
     print(
-        f"""Document was not in status 'DONE' after {max_wait} seconds. 
-This does not mean there was an error. Please check later."""
+        f"""Document status not 'DONE' after {max_wait} seconds. 
+This may not indicate an error. Please check again later."""
     )
     sys.exit(1)
 
