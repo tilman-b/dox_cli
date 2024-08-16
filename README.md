@@ -12,7 +12,7 @@ pip install git+https://github.com/tilman-b/sap_dox_cli.git
 ```
 
 ## Usage
-After successful installation you can use this tool by running `sap_dox` on your shell.
+After successful installation you can use this tool by running `dox` on your shell.
 `dox --help` shows an overview of all options.
 
 General usage is `dox [options] FILE`
