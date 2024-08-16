@@ -18,6 +18,18 @@ After successful installation you can use this tool by running `dox` on your she
 General usage is `dox [options] FILE`
 
 In order to use this tool it is assumed that you have an SAP BTP trial account created as described [here](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
+When creating the account you will receive get/download a json file containing the credentials. 
+Use the following fields as options. See the section below for a more detailed description of the options.
+
+| key                | option                  |
+|--------------------|-------------------------|
+| `url`              | `--base_url`            |
+| `uaa.clientid`     | `--oauth_client_id`     |
+| `uaa.clientsecret` | `--oauth_client_secret` |
+| `uaa.url`          | `--oauth_url`           |
+
+
+
 ### Options
 All options can be specified either as parameters when running the tool or as environment variables (in uppercase and prefixed with `DOX_`).
  - `--oauth_client_id|DOX_OAUTH_CLIENT_ID` 
