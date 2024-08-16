@@ -97,5 +97,9 @@ This may not indicate an error. Please check again later."""
     sys.exit(1)
 
 
-if __name__ == "__main__":
+def main():
     run(max_content_width=120, auto_envvar_prefix="DOX")
+
+
+if __name__ == "__main__":
+    main()

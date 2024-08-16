@@ -11,5 +11,5 @@ setup(
         "requests-oauthlib==2.0.0",
         "oauthlib~=3.2.2",
     ],
-    entry_points={"console_scripts": ["dox = dox_cli.main:run"]},
+    entry_points={"console_scripts": ["dox = dox_cli.main:main"]},
 )
