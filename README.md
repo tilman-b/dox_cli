@@ -45,7 +45,7 @@ dox --oauth_client_id <oauth_client_id> \
 --oauth_client_secret <oauth_client_secret> \
 --oauth_url <oauth_url> \
 --base_url <base_url> \
---document_type <document_type>
+--document_type <document_type> \
 invoice.pdf
 ```
 
