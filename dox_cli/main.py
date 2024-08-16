@@ -4,8 +4,8 @@ import time
 
 import click
 
-from sap_dox_cli.client import DocumentExtractionClient
-from sap_dox_cli.helper import map_type_to_schema
+from dox_cli.client import DocumentExtractionClient
+from dox_cli.helper import map_type_to_schema
 
 
 def _add_env_var_help(env_var: str) -> str:

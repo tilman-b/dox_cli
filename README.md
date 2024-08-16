@@ -1,4 +1,4 @@
-# SAP DOX cli
+# DOX cli
 ![example workflow](https://github.com/tilman-b/sap_dox_cli/actions/workflows/python-app.yml/badge.svg)
 
 ## Introduction
@@ -13,9 +13,9 @@ pip install git+https://github.com/tilman-b/sap_dox_cli.git
 
 ## Usage
 After successful installation you can use this tool by running `sap_dox` on your shell.
-`sap_dox --help` shows an overview of all options.
+`dox --help` shows an overview of all options.
 
-General usage is `sap_dox [options] FILE`
+General usage is `dox [options] FILE`
 
 In order to use this tool it is assumed that you have an SAP BTP trial account created as described [here](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 ### Options
@@ -41,7 +41,7 @@ Custom document types are not supported by now. More details can be found [here]
 #### Use parameters
 
 ```bash
-sap_dox --oauth_client_id <oauth_client_id> \
+dox --oauth_client_id <oauth_client_id> \
 --oauth_client_secret <oauth_client_secret> \
 --oauth_url <oauth_url> \
 --base_url <base_url> \
@@ -57,7 +57,7 @@ export DOX_OAUTH_URL=<oauth_url>
 export DOX_BASE_URL=<base_url>
 export DOX_DOCUMENT_TYPE=<document_type>
 
-sap_dox invoice.pdf
+dox invoice.pdf
 ```
 
 

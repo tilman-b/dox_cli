@@ -5,7 +5,7 @@ from typing import Callable
 from oauthlib.oauth2 import BackendApplicationClient, TokenExpiredError
 from requests_oauthlib import OAuth2Session
 
-from sap_dox_cli.helper import create_url
+from dox_cli.helper import create_url
 
 
 class ExtractionException(Exception):

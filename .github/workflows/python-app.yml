@@ -37,4 +37,4 @@ jobs:
     - name: Test installation
       run: |
         pip install .
-        sap_dox --help
+        dox --help

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="sap_dox_cli",
+    name="dox_cli",
     version="1.0.0",
     description="simple cli tool to interact with SAP document extraction service",
     packages=find_packages(),
@@ -11,5 +11,5 @@ setup(
         "requests-oauthlib==2.0.0",
         "oauthlib~=3.2.2",
     ],
-    entry_points={"console_scripts": ["sap_dox = sap_dox_cli.main:run"]},
+    entry_points={"console_scripts": ["dox = dox_cli.main:run"]},
 )

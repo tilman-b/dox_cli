@@ -5,7 +5,7 @@ from unittest.mock import patch
 from oauthlib.oauth2 import TokenExpiredError
 from requests import Response
 
-from sap_dox_cli.client import (
+from dox_cli.client import (
     DocumentExtractionClient,
     ExtractionException,
     HttpException,

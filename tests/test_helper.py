@@ -1,6 +1,6 @@
 import unittest
 
-from sap_dox_cli.helper import create_url, map_type_to_schema
+from dox_cli.helper import create_url, map_type_to_schema
 
 
 class TestHelpers(unittest.TestCase):
