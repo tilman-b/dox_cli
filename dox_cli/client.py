@@ -22,7 +22,7 @@ class HttpException(Exception):
 
 class DocumentExtractionClient:
     """
-    Basic client to interact with the Document Extraction Service API.
+    Basic client to interact with the SAP Document Information Extraction Service API.
     See https://help.sap.com/docs/document-information-extraction/document-information-extraction/api-reference
     for more details
     """
@@ -72,6 +72,9 @@ class DocumentExtractionClient:
 
     def _get(self, url: str, **kwargs) -> dict:
         return self._call_api(url, self._session.get, 200, **kwargs)
+
+    def _delete(self, url: str, **kwargs) -> None:
+        self._call_api(url, self._session.delete, 200, **kwargs)
 
     def upload_pdf(
         self, document_path: str, document_type: str, schema_id: str
@@ -126,3 +129,17 @@ class DocumentExtractionClient:
                 message="extraction failed", document_id=document_id
             )
         return response
+
+    def delete_document(self, document_id: str) -> None:
+        """
+        Deletes a document from the SAP Document Information Extraction Service
+
+        :param document_id: specifies the document to be deleted
+        :return:
+        """
+        self._delete(
+            create_url(
+                self._base_url, "/document-information-extraction/v1/document/jobs"
+            ),
+            json={"value": [document_id]},
+        )

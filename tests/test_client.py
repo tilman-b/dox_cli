@@ -61,6 +61,19 @@ class TestClient(unittest.TestCase):
                 "http://extraction-service/document-information-extraction/v1/document/jobs/1234",
             )
 
+    def test_delete_document(self):
+        with patch.object(self.client, "_session") as mock:
+            mock.delete.return_value = self._create_response(200)
+            self.client.delete_document(document_id="1234")
+            called_url = mock.delete.call_args.args
+            payload = mock.delete.call_args.kwargs
+
+            self.assertEqual(
+                called_url[0],
+                "http://extraction-service/document-information-extraction/v1/document/jobs",
+            )
+            self.assertEqual(payload["json"]["value"][0], "1234")
+
     def test_upload_pdf_failure(self):
         with patch.object(self.client, "_session") as mock:
             mock.post.return_value = self._create_response(500)
