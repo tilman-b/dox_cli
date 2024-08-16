@@ -2,7 +2,7 @@
 ![example workflow](https://github.com/tilman-b/sap_dox_cli/actions/workflows/python-app.yml/badge.svg)
 
 ## Introduction
-This tool provides a solution for extracting data from invoices, purchase orders, or payment advices stored in PDF format. 
+This tool provides a solution for extracting data from invoices, purchase orders, or payment advices provided in PDF format. 
 It leverages the [SAP Document Information Extraction service](https://help.sap.com/docs/document-information-extraction/document-information-extraction/what-is-document-information-extraction) and is designed for use with an SAP BTP trial account.
 
 ## Installation
@@ -19,8 +19,7 @@ General usage is `dox [options] FILE`
 
 In order to use this tool it is assumed that you have an SAP BTP trial account created as described [here](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 ### Options
-All options can be specified as parameters when executing the cli or as environment variables (upper case and prefixed with `DOX_`).
-
+All options can be specified either as parameters when running the tool or as environment variables (in uppercase and prefixed with `DOX_`).
  - `--oauth_client_id|DOX_OAUTH_CLIENT_ID` 
 (Required) The id of the client used for authentication. 
 Note: this is not id of the client used for extraction.
@@ -33,6 +32,10 @@ Note: this is not id of the client used for extraction.
  - `--document_type|DOX_DOCUMENT_TYPE`
 (Required) Document type of the provided file. Must be one of `invoice`, `paymentAdvice`, `purchaseOrder`.
 Custom document types are not supported by now. More details can be found [here](https://help.sap.com/docs/document-information-extraction/document-information-extraction/supported-document-types-and-file-formats)
+ - `--output_format|DOX_OUTPUT_FORMAT`
+Output format. Must be either `raw_json` (all fields are printed) or `simplified_json` (only some fields are printed)
+ - `--keep_doc|DOX_KEEP_DOC` 
+keep the document in the SAP Document Information Extraction Service after finished
  - `--max_wait|DOX_MAX_WAIT`
  (Optional) Seconds to wait for the document extraction service. Default is 60.
 
