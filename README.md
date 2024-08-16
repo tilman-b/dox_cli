@@ -8,7 +8,7 @@ It leverages the [SAP Document Information Extraction service](https://help.sap.
 ## Installation
 To install the tool, simply execute the following command:
 ```bash
-pip install git+https://github.com/tilman-b/sap_dox_cli.git
+pip install git+https://github.com/tilman-b/dox_cli.git
 ```
 
 ## Usage
