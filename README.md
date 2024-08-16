@@ -33,11 +33,11 @@ Note: this is not id of the client used for extraction.
 (Required) Document type of the provided file. Must be one of `invoice`, `paymentAdvice`, `purchaseOrder`.
 Custom document types are not supported by now. More details can be found [here](https://help.sap.com/docs/document-information-extraction/document-information-extraction/supported-document-types-and-file-formats)
  - `--output_format|DOX_OUTPUT_FORMAT`
-Output format. Must be either `raw_json` (all fields are printed) or `simplified_json` (only some fields are printed). Default is `raw_json`
- - `--keep_doc|DOX_KEEP_DOC` 
-keep the document in the SAP Document Information Extraction Service after finished
+(Optional) Output format. Must be either `raw_json` (all fields are printed) or `simplified_json` (only some fields are printed). Default is `raw_json`
+ - `--keep_doc|DOX_KEEP_DOC`
+Flag to keep the document in the SAP Document Information Extraction Service after finished.
  - `--max_wait|DOX_MAX_WAIT`
- (Optional) Seconds to wait for the document extraction service. Default is 60.
+(Optional) Seconds to wait for the document extraction service. Default is 60.
 
 ### Examples
 
