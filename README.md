@@ -65,3 +65,6 @@ sap_dox invoice.pdf
 - used client is limited to the `default` client which is the only possible client in a trial account
 - only one file can be processed per cli call
 - only pdf files are supported
+
+## Disclaimer
+This project is an independent initiative and is not affiliated with, endorsed by, or connected to SAP SE in any way. The author is not associated with SAP SE, and any trademarks or brand names mentioned belong to their respective owners.
